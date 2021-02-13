@@ -1,4 +1,4 @@
-import { BaseError } from './../BaseError';
+import { BaseError } from '../Base.error';
 
 export class ClientError extends BaseError {
     backendMessage: string;

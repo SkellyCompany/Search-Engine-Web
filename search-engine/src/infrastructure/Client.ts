@@ -1,6 +1,6 @@
-import { ClientError } from '../domain/errors/client/ClientError';
-import { NetworkError } from '../domain/errors/client/NetworkError';
-import { HttpError } from '../domain/errors/client/HttpError';
+import { ClientError } from '../domain/errors/client/Client.error';
+import { NetworkError } from '../domain/errors/client/Network.error';
+import { HttpError } from '../domain/errors/client/Http.error';
 import axios, {
   AxiosError,
   AxiosInstance,

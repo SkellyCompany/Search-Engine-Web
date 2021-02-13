@@ -1,4 +1,4 @@
-import { ParseError } from "../../domain/errors/services/ParseError";
+import { ParseError } from "../../domain/errors/services/Parse.error";
 import { IFetchable } from "../../domain/models/marker/Fetchable.marker";
 import Client from "../../infrastructure/Client";
 import { IResponse } from "../response/IResponse";
