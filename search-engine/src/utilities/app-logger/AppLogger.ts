@@ -1,6 +1,5 @@
 import { LogRecipient } from './models/LogRecipient';
 import { ToastLogger } from './loggers/ToastLogger';
-import { GoogleAnalyticsLogger } from './loggers/GoogleAnalyticsLogger';
 import { ILogger } from './ILogger';
 import { Log } from './models/Log';
 import { LogType } from './models/LogType';
