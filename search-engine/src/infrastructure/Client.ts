@@ -8,8 +8,7 @@ import axios, {
   AxiosRequestConfig,
 } from "axios";
 
-// let baseUrl = process.env.API_URL;
-let baseUrl = "http://localhost:5000"
+let baseUrl = process.env.API_URL;
 
 class Client {
   private _apiConfig: AxiosRequestConfig;
