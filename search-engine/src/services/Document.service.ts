@@ -5,6 +5,7 @@ import { GenericService } from './generic-service/Generic.service';
 class DocumentService {
 
   private readonly documentUrl: string = "/document"
+  private readonly allDocumentsUrl: string = "/document/all"
 
   private readonly service: GenericService
 
@@ -13,7 +14,7 @@ class DocumentService {
   }
 
   public fetchAllDocuments(): Promise<IResponse<IDocument[]>> {
-    return this.service.get<IDocument[]>(this.documentUrl, undefined);
+    return this.service.get<IDocument[]>(this.allDocumentsUrl, undefined);
   }
 
   public async fetchDocuments(keyword: string): Promise<IResponse<IDocument[]>> {
