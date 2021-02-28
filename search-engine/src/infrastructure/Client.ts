@@ -1,12 +1,13 @@
-import { ClientError } from '../domain/errors/client/Client.error';
-import { NetworkError } from '../domain/errors/client/Network.error';
-import { HttpError } from '../domain/errors/client/Http.error';
+
 import axios, {
   AxiosError,
   AxiosInstance,
   AxiosResponse,
   AxiosRequestConfig,
 } from "axios";
+import { ClientError } from "../domain/errors/client/Client.error";
+import { HttpError } from "../domain/errors/client/Http.error";
+import { NetworkError } from "../domain/errors/client/Network.error";
 
 let baseUrl = process.env.API_URL;
 
@@ -129,7 +130,7 @@ function generateFormDataAxiosInstance(
   return generateAxiosInstance(formDataConfig);
 }
 
-function resolveError(error: AxiosError): ClientError {    
+function resolveError(error: AxiosError): ClientError { 
   if (error.response) {
     let httpError: HttpError = new HttpError(error.response.status, error.message, error.response.data.response)
     return httpError
