@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import React, { useEffect, useState } from "react";
+import { ThreeDots } from "../../components/ThreeDots";
 import { IDocument } from "../../domain/entities/IDocument.model";
 import DocumentService from "../../services/Document.service";
 import { ResponseStatus } from "../../services/response/IResponse";
@@ -16,7 +16,7 @@ export default function Landing() {
   const [documents, setDocuments] = useState<IDocument[]>();
 
   // MARK: Hooks Effect - Data
-  useEffect(() => { 
+  useEffect(() => {
     fetchAllDocuments()
   }, []);
 
@@ -26,30 +26,39 @@ export default function Landing() {
   // MARK: Services calls
   async function fetchAllDocuments() {
     documentService.fetchAllDocuments().then(response => {
-      if(response.status == ResponseStatus.Success) {
+      if (response.status == ResponseStatus.Success) {
         setDocuments(response.data)
+        console.log(response.data)
       } else {
         console.log(response.error)
-        // logger.log(
-        //   LogType.ERROR,
-        //   LogRecipient.DEVELOPER,
-        //   response.error.getErrorMessage()
-        // );
+        logger.log(
+          LogType.ERROR,
+          LogRecipient.DEVELOPER,
+          response.error.getErrorMessage()
+        );
       }
     })
   }
-  
+
   return (
     <div className={css.mainContainer}>
       {documents ? (
         <div className={css.mainWrapper}>
-
+          <div className={css.documentsContainer}>
+            {documents.map(document => {
+              return (
+                <div className={css.document} key={document.id}>
+                  {document.id}
+                </div>
+              )
+            })}
+          </div>
         </div>
       ) : (
-        <div className={css.loadingContainer}>
-
-        </div>
-      )}
+          <div className={css.loadingContainer}>
+            <ThreeDots color={"#FFAB73"} />
+          </div>
+        )}
     </div>
   )
 }  
