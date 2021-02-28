@@ -1,9 +1,13 @@
-import { BaseError } from '../../domain/errors/Base.error';
-import { IFetchable } from '../../domain/models/marker/Fetchable.marker';
-import { ResponseStatus } from "./ResponseStatus";
+import { BaseError } from "../../domain/errors/Base.error";
+import { IFetchable } from "../../domain/entities/marker/Fetchable.marker";
 
-export interface IResponse<T extends IFetchable>{
+export interface IResponse<T extends IFetchable | void>{
     status: ResponseStatus;
     data?: T;
     error?: BaseError;
+}
+
+export enum ResponseStatus {
+    Success,
+    Error
 }

@@ -1,8 +1,7 @@
-import { IFetchable } from './../../types/fetchable/marker/Fetchable';
-import { ParseError } from "../../errors/services/ParseError";
+import { ParseError } from "../../domain/errors/services/Parse.error";
+import { IFetchable } from "../../domain/entities/marker/Fetchable.marker";
 import Client from "../../infrastructure/Client";
-import { IResponse } from "../response/IResponse";
-import { ResponseStatus } from "../response/ResponseStatus";
+import { IResponse, ResponseStatus } from "../response/IResponse";
 
 export class GenericService {
     public async get<T extends IFetchable>(url: string, token: string): Promise<IResponse<T>> {

@@ -1,8 +1,26 @@
 import '../styles/globals.scss'
 import type { AppProps /*, AppContext */ } from 'next/app'
+import React from 'react'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <div>
+      <Component {...pageProps} />
+      <ToastContainer
+        position="top-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+    </div>
+  );
 }
 
 // Only uncomment this method if you have blocking data requirements for
