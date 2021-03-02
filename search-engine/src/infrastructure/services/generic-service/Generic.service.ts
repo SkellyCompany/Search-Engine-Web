@@ -1,6 +1,6 @@
-import { ParseError } from "../../domain/errors/services/Parse.error";
-import { IFetchable } from "../../domain/entities/marker/Fetchable.marker";
-import Client from "../../infrastructure/Client";
+import { ParseError } from "../../../domain/errors/services/Parse.error";
+import { IFetchable } from "../../../domain/entities/marker/Fetchable.marker";
+import Client from "../../Client";
 import { IResponse, ResponseStatus } from "../response/IResponse";
 
 export class GenericService {

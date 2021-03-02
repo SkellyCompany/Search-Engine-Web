@@ -1,7 +1,7 @@
 import { SingletonRouter } from "next/dist/client/router";
 
 export interface IDocument {
-    id: string
-    name: string
+    docId: string
     url: string
+    occurence: number
 }

@@ -48,7 +48,6 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding-left: 15px;
   transition: 0.3s ease-in-out;
 }
 
@@ -79,12 +78,7 @@
   transition: 0.2s;
 }
 
-.searchIcon:hover {
-  cursor: pointer;
-}
-
 .documentsContainer {
-  // background-color: blue;
   width: 100%;
   height: calc(100% - 115px);
   padding-top: 20px;
@@ -93,13 +87,11 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  // background-color: blue;
   overflow: scroll;
 }
 
 .documentsWrapper {
   width: calc(100% - 40px);
-  // background-color: green;
 }
 
 .document {
@@ -144,7 +136,7 @@
   align-items: flex-start;
 }
 
-.documentIdContainer {
+.documentOccurencesContainer {
   font-size: 13px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -155,6 +147,14 @@
   margin-top: 15px;
   font-size: 16px;
   color: white;
+}
+
+.loadingWrapper {
+  height: calc(100% - 115px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loadingContainer {
