@@ -27,11 +27,11 @@ export default function Landing() {
       if (response.status == ResponseStatus.Success) {
         setDocuments(response.data)
       } else {
-        // logger.log(
-        //   LogType.ERROR,
-        //   LogRecipient.DEVELOPER,
-        //   response.error.getErrorMessage()
-        // );
+        logger.log(
+          LogType.ERROR,
+          LogRecipient.DEVELOPER,
+          response.error.getErrorMessage()
+        );
         setDocuments([])
       }
       setLoading(false)
@@ -80,7 +80,7 @@ export default function Landing() {
                             {document.url}
                           </div>
                           <div className={css.documentOccurencesContainer}>
-                            Occurences: {document.occurence}
+                            Occurences: {document.occurrences}
                           </div>
                         </div>
                       </div>
