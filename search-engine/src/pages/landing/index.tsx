@@ -3,11 +3,11 @@ import { ThreeDots } from "../../components/ThreeDots";
 import { IDocument } from "../../domain/entities/IDocument.model";
 import DocumentService from "../../infrastructure/services/Document.service";
 import { ResponseStatus } from "../../infrastructure/services/response/IResponse";
-import { AppLogger } from "../../utilities/app-logger/AppLogger";
 import { LogRecipient } from "../../utilities/app-logger/models/LogRecipient";
 import { LogType } from "../../utilities/app-logger/models/LogType";
 import "line-awesome/dist/line-awesome/css/line-awesome.min.css";
 import css from "./index.module.scss";
+import { AppLogger } from "../../utilities/app-logger/AppLogger";
 
 export default function Landing() {
   // MARK: Constants & Variables
@@ -27,11 +27,11 @@ export default function Landing() {
       if (response.status == ResponseStatus.Success) {
         setDocuments(response.data)
       } else {
-        // logger.log(
-        //   LogType.ERROR,
-        //   LogRecipient.DEVELOPER,
-        //   response.error.getErrorMessage()
-        // );
+        logger.log(
+          LogType.ERROR,
+          LogRecipient.DEVELOPER,
+          response.error.getErrorMessage()
+        );
         setDocuments([])
       }
       setLoading(false)

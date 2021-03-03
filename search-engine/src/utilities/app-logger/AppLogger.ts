@@ -1,5 +1,6 @@
 import { LogRecipient } from './models/LogRecipient';
 import { ToastLogger } from './loggers/ToastLogger';
+import { GoogleAnalyticsLogger } from './loggers/GoogleAnalyticsLogger';
 import { ILogger } from './ILogger';
 import { Log } from './models/Log';
 import { LogType } from './models/LogType';
@@ -10,7 +11,7 @@ export class AppLogger {
     loggers: ILogger[]
 
     constructor() {
-        this.loggers = [new ConsoleLogger(), new ToastLogger()]
+        this.loggers = [new ConsoleLogger(), new GoogleAnalyticsLogger(), new ToastLogger()]
     }
 
     public log(type: LogType, recipient: LogRecipient, name: string, description: string = undefined, parameters: Record<string, any> = undefined, stack: string = new Error().stack) {
