@@ -27,11 +27,11 @@ export default function Landing() {
       if (response.status == ResponseStatus.Success) {
         setDocuments(response.data)
       } else {
-        logger.log(
-          LogType.ERROR,
-          LogRecipient.DEVELOPER,
-          response.error.getErrorMessage()
-        );
+        // logger.log(
+        //   LogType.ERROR,
+        //   LogRecipient.DEVELOPER,
+        //   response.error.getErrorMessage()
+        // );
         setDocuments([])
       }
       setLoading(false)
