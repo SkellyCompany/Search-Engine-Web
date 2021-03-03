@@ -56,7 +56,6 @@ export class AppLogger {
         })
     }
 
-
     private extractSourceFile(stack: string): string {
         if (stack) {
             const stackArray = stack.split("\n")

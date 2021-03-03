@@ -26,10 +26,18 @@ export default function Landing() {
     documentService.fetchDocuments(keyword).then(response => {
       if (response.status == ResponseStatus.Success) {
         setDocuments(response.data)
+        logger.log(
+          LogType.SUCCESS,
+          LogRecipient.USER,
+          "Successfully Fetched Documents",
+          "",
+          {"keyword": keyword}
+        );
       } else {
         logger.log(
           LogType.ERROR,
           LogRecipient.DEVELOPER,
+          "Could not fetch documents",
           response.error.getErrorMessage()
         );
         setDocuments([])
