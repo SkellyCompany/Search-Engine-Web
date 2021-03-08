@@ -6,12 +6,13 @@ import { Log } from './models/Log';
 import { LogType } from './models/LogType';
 import { ConsoleLogger } from './loggers/ConsoleLogger';
 import System from '../../global/System.info';
+import { FirebaseAnalyticsLogger } from './loggers/FirebaseAnalyticsLogger';
 
 export class AppLogger {
     loggers: ILogger[]
 
     constructor() {
-        this.loggers = [new ConsoleLogger(), new GoogleAnalyticsLogger(), new ToastLogger()]
+        this.loggers = [new ConsoleLogger(), new GoogleAnalyticsLogger(), new FirebaseAnalyticsLogger(), new ToastLogger()]
     }
 
     public log(type: LogType, recipient: LogRecipient, name: string, description: string = undefined, parameters: Record<string, any> = undefined, stack: string = new Error().stack) {
