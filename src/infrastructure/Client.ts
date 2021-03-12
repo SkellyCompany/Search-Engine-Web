@@ -19,12 +19,11 @@ class Client {
   constructor() {
     const apiConfig: AxiosRequestConfig = {
       baseURL: baseUrl,
-      withCredentials: true,
       headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
-        "Access-Control-Allow-Headers":
-          "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
+        "Content-Type": "application/json"
+        // "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
+        // "Access-Control-Allow-Headers":
+        //   "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
       },
       timeout: 30000,
     };
