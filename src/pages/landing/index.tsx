@@ -93,7 +93,7 @@ export default function Landing() {
                 onChange={(e) => onSearchInputChange(e.target.value)}
               ></input>
               <div className={css.searchHistoryContainer}>
-                {searchHistory && (
+                {searchHistory && searchHistory.length > 0 && (
                   <>
                     <div className={css.searchHistoryHeader}></div>
                     <div className={css.searchHistoryRecordsContainer}>
