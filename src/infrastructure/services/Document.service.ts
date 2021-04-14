@@ -4,8 +4,7 @@ import { GenericService } from './generic-service/Generic.service';
 
 class DocumentService {
 
-  private readonly documentUrl: string = "/term"
-  private readonly allDocumentsUrl: string = "/document/all"
+  private readonly documentUrl: string = "/document"
 
   private readonly service: GenericService
 
@@ -13,13 +12,9 @@ class DocumentService {
     this.service = new GenericService()
   }
 
-  public fetchAllDocuments(): Promise<IResponse<IDocument[]>> {
-    return this.service.get<IDocument[]>(this.allDocumentsUrl, undefined);
-  }
-
   public async fetchDocuments(keyword: string): Promise<IResponse<IDocument[]>> {
-    const documentsResponse = await this.service.get<IDocument[]>(this.documentUrl + "?keyword=" + keyword, undefined);
-    if(documentsResponse.status == ResponseStatus.Success) {
+    const documentsResponse = await this.service.get<IDocument[]>(this.documentUrl + "?term=" + keyword, undefined);
+    if (documentsResponse.status == ResponseStatus.Success) {
       documentsResponse.data = documentsResponse.data.sort((docA, docB) => {
         return docB.occurrences - docA.occurrences
       })
