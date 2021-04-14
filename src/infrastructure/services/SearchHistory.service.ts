@@ -13,10 +13,6 @@ class SearchHistoryService {
   }
 
   public fetchSearchHistory(keyword: string): Promise<IResponse<string[]>> {
-    // return new Promise((resolve) => resolve({
-    //   status: ResponseStatus.Success,
-    //   data: ["Secret document", "your mama"]
-    // }))
     return this.service.get<string[]>(this.searchHistoryUrl + "?keyword=" + keyword, undefined);
   }
 
