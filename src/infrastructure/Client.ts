@@ -79,7 +79,7 @@ class Client {
 
   public async put(urlPath: string, data: any, token: string = null): Promise<AxiosResponse["data"]> {
     try {
-      if(token) {
+      if (token) {
         const res = await this._AXIOS.put(urlPath, data, {
           headers: {
             Authorization: "Bearer " + token,
@@ -96,13 +96,14 @@ class Client {
     }
   }
 
-  public async delete(urlPath: string, token: string): Promise<AxiosResponse["data"]> {
+  public async delete(urlPath: string, data: any, token: string): Promise<AxiosResponse["data"]> {
     try {
-      if(token) {
+      if (token) {
         const res = await this._AXIOS.delete(urlPath, {
           headers: {
             Authorization: "Bearer " + token,
           },
+          data: data
         });
         return res.data;
       } else {
@@ -129,7 +130,7 @@ function generateFormDataAxiosInstance(
   return generateAxiosInstance(formDataConfig);
 }
 
-function resolveError(error: AxiosError): ClientError { 
+function resolveError(error: AxiosError): ClientError {
   if (error.response) {
     let httpError: HttpError = new HttpError(error.response.status, error.message, error.response.data.response)
     return httpError

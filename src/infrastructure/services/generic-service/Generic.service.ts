@@ -146,4 +146,59 @@ export class GenericService {
                 return response;
             });
     }
+
+    public async delete<T extends IFetchable>(url: string, data: any, token: string): Promise<IResponse<T>> {
+        const client = new Client();
+        return client
+            .delete(url, data, token)
+            .then((res) => {
+                const createdData: T = res;
+                if (createdData) {
+                    const response: IResponse<T> = {
+                        status: ResponseStatus.Success,
+                        data: createdData,
+                        error: undefined
+                    };
+                    return response;
+                } else {
+                    const parseError: ParseError = new ParseError("Could not parse response.")
+                    const response: IResponse<T> = {
+                        status: ResponseStatus.Error,
+                        data: undefined,
+                        error: parseError
+                    };
+                    return response;
+                }
+            })
+            .catch((error) => {
+                const response: IResponse<T> = {
+                    status: ResponseStatus.Error,
+                    data: undefined,
+                    error: error
+                };
+                return response;
+            });
+    }
+
+    public async voidDelete(url: string, data: any, token: string): Promise<IResponse<void>> {
+        const client = new Client();
+        return client
+            .delete(url, data, token)
+            .then(() => {
+                const response: IResponse<void> = {
+                    status: ResponseStatus.Success,
+                    data: undefined,
+                    error: undefined
+                };
+                return response;
+            })
+            .catch((error) => {
+                const response: IResponse<void> = {
+                    status: ResponseStatus.Error,
+                    data: undefined,
+                    error: error
+                };
+                return response;
+            });
+    }
 }
